@@ -15,5 +15,6 @@ try:
     sleep(0.01)               #sleep 10 ms
   except KeyboardInterrupt:       # stop gracefully on ctrl-C
     print('\nExiting')
+    
   pwm.stop()
   GPIO.cleanup()
