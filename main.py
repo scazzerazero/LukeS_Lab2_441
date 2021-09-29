@@ -22,11 +22,11 @@ def inputChange(pin):
     my_pwm_yellow.ChangeDutyCycle(dc) # set duty cycle
     sleep (0.1)                       # sleep 10 ms
     print(dc)
-   '''' if dc == 100:
-      for dc in range(101,0,-1): #range(start,stop,step)
-        print(dc)
-        my_pwm_yellow.ChangeDutyCycle(dc-1)
-        sleep(0.1)'''
+    #if dc == 100:
+     # for dc in range(101,0,-1): #range(start,stop,step)
+     #   print(dc)
+      #  my_pwm_yellow.ChangeDutyCycle(dc-1)
+       # sleep(0.1)
 
 #checking for interrupt on the two button pins
 GPIO.add_event_detect(butt1, GPIO.RISING, callback=inputChange, bouncetime=300) #debouncing =300
