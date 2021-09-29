@@ -7,9 +7,9 @@ butt1, butt2, pinG, pinY, pinB=20,21,26,19,13
 
 
 GPIO.setup(pinG, GPIO.OUT)          #The Green LED
-my_pwm_green= GPIO.PWM(pinG, 1)     # create PWM object at 1Hz
+my_pwm_green= GPIO.PWM(pinG, 100)     # create PWM object at 1Hz
 GPIO.setup(pinY, GPIO.OUT)          #The Yellow LED
-my_pwm_yellow= GPIO.PWM(pinY, 1)    # create PWM object at 1Hz
+my_pwm_yellow= GPIO.PWM(pinY, 100)    # create PWM object at 1Hz
 GPIO.setup(pinB, GPIO.OUT)          #the Blue LED that blinks on and off
 GPIO.setup(butt1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #The first Button
 GPIO.setup(butt2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #The second button
