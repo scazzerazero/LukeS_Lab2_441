@@ -17,17 +17,18 @@ GPIO.setup(butt2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #The second button
 #defining the threaded callback function
 def inputChange(pin):
   print("input pin ", pin ," status changed to: ", GPIO.input(pin) )
-  my_pwm_yellow.start(0) #initiate the pwm object. starting it at 0% duty cycle
   for dc in range(0,101,1):       # loop duty cycle from 0 to 100. dc is the iterating variable
     my_pwm_yellow.ChangeDutyCycle(dc) # set duty cycle
     sleep (0.01)                       # sleep 10 ms
-    #print(dc)
-    #if dc == 100:
-     # for dc in range(101,0,-1): #range(start,stop,step)
-     #   print(dc)
-      #  my_pwm_yellow.ChangeDutyCycle(dc-1)
-       # sleep(0.1)
+    print(dc)
+  for dc in range(101,0,-1): #range(start,stop,step)
+    print(dc)
+    my_pwm_yellow.ChangeDutyCycle(dc-1)
+    sleep(0.01)
   print("all done, leaving function")
+
+my_pwm_yellow.start(0) #initiate the pwm object. starting it at 0% duty cycle
+my_pwm_green.start(50) #initiate pwm object at 50% duty cycle
 #checking for interrupt on the two button pins
 GPIO.add_event_detect(butt1, GPIO.RISING, callback=inputChange, bouncetime=300) #debouncing =300
 GPIO.add_event_detect(butt2, GPIO.RISING, callback=inputChange, bouncetime=300)
