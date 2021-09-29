@@ -18,8 +18,8 @@ GPIO.setup(butt2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) #The second button
 def inputChange(pin):
   
   print("input pin ", pin ," status changed to: ", GPIO.input(pin) )
-  
-  if pin==pinY:
+
+  if pin==butt2:
     my_pwm_yellow.start(0) #initiate the pwm object. starting it at 0% duty cycle
     for dc in range(0,101,1): # loop duty cycle, dc, from 0 to 100. 
       my_pwm_yellow.ChangeDutyCycle(dc) # set duty cycle
@@ -30,7 +30,7 @@ def inputChange(pin):
       my_pwm_yellow.ChangeDutyCycle(dc-1)
       sleep(0.005) #half second ramp up, half second ramp down. 
     my_pwm_yellow.stop()
-  elif pin==pinG:
+  elif pin==butt1:
     my_pwm_green.start(0) #initiate pwm object at 50% duty cycle
     for dc in range(0,101,1): # loop duty cycle, dc, from 0 to 100. 
       my_pwm_yellow.ChangeDutyCycle(dc) # set duty cycle
