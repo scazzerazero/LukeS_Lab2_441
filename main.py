@@ -21,10 +21,10 @@ def inputChange(pin):
   if pin==butt1:
     my_pwm_green.start(0) #initiate pwm object at 50% duty cycle
     for dc in range(0,101,1): # loop duty cycle, dc, from 0 to 100. 
-      my_pwm_yellow.ChangeDutyCycle(dc) # set duty cycle
+      my_pwm_green.ChangeDutyCycle(dc) # set duty cycle
       sleep (0.005)                  # sleep 5 ms. 5ms*100 is half second. 
     for dc in range(101,0,-1): #range(start,stop,step)
-      my_pwm_yellow.ChangeDutyCycle(dc-1)
+      my_pwm_green.ChangeDutyCycle(dc-1)
       sleep(0.005) #half second ramp up, half second ramp down. 
     my_pwm_green.stop()
   elif pin==butt2:
